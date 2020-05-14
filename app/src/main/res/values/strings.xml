@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AppCoronavirus</string>
+    <string name="title_activity_regsintomas">regsintomas</string>
 </resources>

@@ -2,6 +2,7 @@ package com.pit.appcoronavirus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,7 +24,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Creacion de variables
+    //Declariacion de objetos
     EditText numcel,numdoc;
     Spinner spinac,spitipo;
     Button btnregistrar;
@@ -58,20 +59,21 @@ public class MainActivity extends AppCompatActivity {
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ejecutarServicio("http://192.168.1.46:8080/");
-
+                //llamar al metodo
+                ejecutarServicio("http://192.168.1.61:8080/pitperu_bd/insertar_ciudadano.php");
+                //Llamar a la actividad sintomas
+                registrarsintomas();
             }
         });
     }
 
     //Metodo que envia las peticiones al server url: ruta del webservice
     private void ejecutarServicio(String URL){
-
+        //Declara peticion y tipo
         StringRequest sr=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(),"OPERACION EXITOSA",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"SE REGISTRO CIUDADANO",Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener(){
             @Override
@@ -80,19 +82,26 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }){
+            //Envio de parametros
             protected Map<String,String>getParams() throws AuthFailureError{
                 Map<String,String> parametros=new HashMap<String,String>();
                 parametros.put("NumCelular",numcel.getText().toString());
-                parametros.put("Nacionaidad",spinac.toString());
-                parametros.put("TipoDocumento",spitipo.toString());
+                parametros.put("Nacionalidad",spinac.getSelectedItem().toString());
+                parametros.put("TipoDocumento",spitipo.getSelectedItem().toString());
                 parametros.put("NumDocumento",numdoc.getText().toString());
                 return parametros;
             }
         };
-
+        //Proceso y ejecucion de peticion
         RequestQueue rq= Volley.newRequestQueue(this);
         rq.add(sr);
 
+    }
+
+    public void registrarsintomas(){
+
+        Intent intent=new Intent(this,regsintomas.class);
+        startActivity(intent);
     }
 
 }
