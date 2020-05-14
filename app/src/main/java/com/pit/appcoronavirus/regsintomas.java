@@ -67,11 +67,34 @@ public class regsintomas extends AppCompatActivity {
             //Envio de parametros
             protected Map<String,String> getParams() throws AuthFailureError {
                 Map<String,String> parametros=new HashMap<String,String>();
-                parametros.put("tos",chktos.getText().toString());
-                parametros.put("fiebre",chkfiebre.getText().toString());
-                parametros.put("cansancio",chkcansancio.getText().toString());
-                parametros.put("dificultadrespirar",chkrespirar.getText().toString());
-                parametros.put("contactoconfirmado",chkcontacto.getText().toString());
+
+                if(chktos.isChecked()){
+                    parametros.put("tos",chktos.getText().toString());
+                }else{
+                    parametros.put("tos",chktos.getText().toString());
+                }
+                if(chkfiebre.isChecked()){
+                    parametros.put("fiebre",chkfiebre.getText().toString());
+                }else{
+                    parametros.put("fiebre",chkfiebre.getText().toString());
+                }
+                if(chkcansancio.isChecked()){
+                    parametros.put("cansancio",chkcansancio.getText().toString());
+                }else{
+                    parametros.put("cansancio",chkcansancio.getText().toString());
+                }
+                if(chkrespirar.isChecked()){
+                    parametros.put("dificultadrespirar",chkrespirar.getText().toString());
+                }else{
+                    parametros.put("dificultadrespirar",chkrespirar.getText().toString());
+                }
+                if(chkcontacto.isChecked()){
+                    parametros.put("contactoconfirmado",chkcontacto.getText().toString());
+                }else{
+                    parametros.put("contactoconfirmado",chkcontacto.getText().toString());
+                }
+
+
                 return parametros;
             }
         };
@@ -80,4 +103,6 @@ public class regsintomas extends AppCompatActivity {
         rq.add(sr);
 
     }
+
+
 }
