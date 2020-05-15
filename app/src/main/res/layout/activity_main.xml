@@ -10,10 +10,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="248dp"
-        android:layout_height="69dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Ingrese sus datos"
+        android:layout_marginBottom="40dp"
         android:textSize="24sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="144dp"
@@ -29,8 +30,8 @@
 
     <EditText
         android:id="@+id/edtNumero"
-        android:layout_width="328dp"
-        android:layout_height="42dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="33dp"
@@ -46,8 +47,8 @@
 
     <Spinner
         android:id="@+id/spiNacionalidad"
-        android:layout_width="324dp"
-        android:layout_height="29dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:spinnerMode="dropdown"
         tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="237dp" />
@@ -62,8 +63,8 @@
 
     <Spinner
         android:id="@+id/spiTipodoc"
-        android:layout_width="324dp"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="341dp" />
 
@@ -77,8 +78,8 @@
 
     <EditText
         android:id="@+id/edtNroDoc"
-        android:layout_width="328dp"
-        android:layout_height="42dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="35dp"
@@ -86,8 +87,8 @@
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="326dp"
-        android:layout_height="41dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Registrar"
         android:textColor="#0C0A09"
         tools:layout_editor_absoluteX="35dp"
