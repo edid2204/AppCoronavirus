@@ -68,32 +68,43 @@ public class regsintomas extends AppCompatActivity {
             protected Map<String,String> getParams() throws AuthFailureError {
                 Map<String,String> parametros=new HashMap<String,String>();
 
-                if(chktos.isChecked()){
-                    parametros.put("tos",chktos.getText().toString());
-                }else{
-                    parametros.put("tos",chktos.getText().toString());
-                }
-                if(chkfiebre.isChecked()){
-                    parametros.put("fiebre",chkfiebre.getText().toString());
-                }else{
-                    parametros.put("fiebre",chkfiebre.getText().toString());
-                }
-                if(chkcansancio.isChecked()){
-                    parametros.put("cansancio",chkcansancio.getText().toString());
-                }else{
-                    parametros.put("cansancio",chkcansancio.getText().toString());
-                }
-                if(chkrespirar.isChecked()){
-                    parametros.put("dificultadrespirar",chkrespirar.getText().toString());
-                }else{
-                    parametros.put("dificultadrespirar",chkrespirar.getText().toString());
-                }
-                if(chkcontacto.isChecked()){
-                    parametros.put("contactoconfirmado",chkcontacto.getText().toString());
-                }else{
-                    parametros.put("contactoconfirmado",chkcontacto.getText().toString());
-                }
+                String cad1="",cad2="",cad3="",cad4="",cad5="";
 
+                if(chktos.isChecked()==true){
+                    cad1+="si";
+                    parametros.put("tos",cad1);
+                }else{
+                    cad1+="no";
+                    parametros.put("tos",cad1);
+                }
+                if(chkfiebre.isChecked()==true){
+                    cad2+="si";
+                    parametros.put("fiebre",cad2);
+                }else{
+                    cad2+="no";
+                    parametros.put("fiebre",cad2);
+                }
+                if(chkcansancio.isChecked()==true){
+                    cad3+="si";
+                    parametros.put("cansancio",cad3);
+                }else{
+                    cad3+="no";
+                    parametros.put("cansancio",cad3);
+                }
+                if(chkrespirar.isChecked()==true){
+                    cad4+="si";
+                    parametros.put("dificultadrespirar",cad4);
+                }else{
+                    cad4+="no";
+                    parametros.put("dificultadrespirar",cad4);
+                }
+                if(chkcontacto.isChecked()==true){
+                    cad5+="si";
+                    parametros.put("contactoconfirmado",cad5);
+                }else{
+                    cad5+="no";
+                    parametros.put("contactoconfirmado",cad5);
+                }
 
                 return parametros;
             }

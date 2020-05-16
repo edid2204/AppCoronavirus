@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:alwaysDrawnWithCache="false"
     tools:context=".regsintomas">
 
 
@@ -12,58 +11,55 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="40dp"
+        android:gravity="center_horizontal"
         android:text="Ingrese Sintomatologia"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="46dp" />
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <CheckBox
         android:id="@+id/chktos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¿Tiene Tos?"
-        tools:visibility="visible" />
+        android:layout_marginBottom="30dp"
+        android:text="¿Tiene Tos?" />
 
     <CheckBox
         android:id="@+id/chkfiebre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¿Tiene Fiebre?"
-        tools:visibility="visible" />
+        android:layout_marginBottom="30dp"
+        android:text="¿Tiene Fiebre?" />
 
     <CheckBox
         android:id="@+id/chkcansancio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¿Tiene Cansancio?"
-        tools:visibility="visible" />
+        android:layout_marginBottom="30dp"
+        android:text="¿Tiene Cansancio?" />
 
     <CheckBox
         android:id="@+id/chkrespirar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¿Tiene dificultad al respirar?"
-        tools:visibility="visible" />
+        android:layout_marginBottom="30dp"
+        android:text="¿Tiene dificultad al respirar?" />
 
     <CheckBox
         android:id="@+id/chkcontacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="¿Ha tenido contacto con paciente positivo covid?"
-        android:layout_marginBottom="40dp"
-        tools:visibility="visible" />
+        android:layout_marginBottom="80dp"
+        android:text="¿Ha tenido contacto con paciente positivo covid?" />
 
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F44336"
         android:text="Registrar Sintomas"
-        android:textColor="#943201"
+        android:textColor="#FCFBFB"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="570dp" />
+        android:textStyle="bold" />
 
 </LinearLayout>
