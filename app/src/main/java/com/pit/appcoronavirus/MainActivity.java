@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         spitipo=(Spinner) findViewById(R.id.spiTipodoc);
         numdoc=(EditText) findViewById(R.id.edtNroDoc);
         btnregistrar=(Button) findViewById(R.id.btnRegistrar);
-
+        
         //Codigo del boton registrar
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         rq.add(sr);
 
     }
-
+    //Pasar al activity sintomas
     public void registrarsintomas(){
 
         Intent intent=new Intent(this,regsintomas.class);
