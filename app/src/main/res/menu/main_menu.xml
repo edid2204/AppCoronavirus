@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item android:id="@+id/menu_alert"
-        android:title="Alerta"
-        android:icon="@mipmap/ic_alerta"/>
+        android:title="Alertas"
+        android:icon="@drawable/ic_alert"/>
 
     <item android:id="@+id/menu_map"
         android:title="Mapa"
-        android:icon="@mipmap/ic_mapa"/>
+        android:icon="@drawable/ic_map"/>
 
     <item android:id="@+id/menu_triaje"
         android:title="Triaje"
-        android:icon="@mipmap/ic_triaje"/>
+        android:icon="@drawable/ic_triaje"/>
 
     <item android:id="@+id/menu_datos"
         android:title="Datos"
-        android:icon="@mipmap/ic_datos"/>
+        android:icon="@drawable/ic_datos"/>
 
-    <item android:id="@+id/menu_consejos"
-        android:title="Consejos"
-        android:icon="@mipmap/ic_recomendacion"/>
-
-
-
+    <item android:id="@+id/menu_menu"
+        android:title="Menu"
+        android:icon="@drawable/ic_menu"/>
 
 </menu>
