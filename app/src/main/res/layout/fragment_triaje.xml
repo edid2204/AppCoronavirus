@@ -1,13 +1,64 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="Fragmentos.TriajeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/triaje" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_horizontal"
+        android:text="Ingrese Sintomatologia"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <CheckBox
+        android:id="@+id/chktos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="¿Tiene Tos?" />
+
+    <CheckBox
+        android:id="@+id/chkfiebre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="¿Tiene Fiebre?" />
+
+    <CheckBox
+        android:id="@+id/chkcansancio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="¿Tiene Cansancio?" />
+
+    <CheckBox
+        android:id="@+id/chkrespirar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="¿Tiene dificultad al respirar?" />
+
+    <CheckBox
+        android:id="@+id/chkcontacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:text="¿Ha tenido contacto con paciente positivo covid?" />
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F44336"
+        android:text="Registrar Sintomas"
+        android:textColor="#FCFBFB"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

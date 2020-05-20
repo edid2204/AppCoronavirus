@@ -2,7 +2,6 @@ package com.pit.appcoronavirus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +28,7 @@ public class activity_regusuario extends AppCompatActivity {
     EditText numcel,numdoc;
     Spinner spinac,spitipo;
     Button btnregistrar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class activity_regusuario extends AppCompatActivity {
                 //llamar al metodo
                 ejecutarServicio("http://192.168.1.61:8080/pitperu_bd/insertar_ciudadano.php");
                 //Llamar a la actividad sintomas
-                registrarsintomas();
+
             }
         });
 
@@ -99,10 +100,4 @@ public class activity_regusuario extends AppCompatActivity {
 
     }
 
-    //Pasar al activity sintomas
-    public void registrarsintomas(){
-
-        Intent intent=new Intent(this,regsintomas.class);
-        startActivity(intent);
-    }
 }

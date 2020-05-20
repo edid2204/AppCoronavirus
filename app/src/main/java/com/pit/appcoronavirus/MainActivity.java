@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        registrarUsuario();
+
         //Fragment por defecto
         mostrarFragmento(new AlertFragment());
 
@@ -37,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         mBottonNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+
 
                 if(menuItem.getItemId()==R.id.menu_alert){
                     //Llamar al metodo y enviar fragment
@@ -68,9 +73,19 @@ public class MainActivity extends AppCompatActivity {
     //Metodo que permite elegir el Fragment
     //container: framelayout en activity main
     private void mostrarFragmento(Fragment frag){
+
         getSupportFragmentManager().beginTransaction().replace(R.id.container,frag)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
     }
+
+    //Iniciar activity registrar usuario
+    public void registrarUsuario(){
+
+        Intent intent=new Intent(this,activity_regusuario.class);
+        startActivity(intent);
+
+    }
+
 
 }
