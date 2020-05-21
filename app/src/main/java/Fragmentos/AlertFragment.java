@@ -19,6 +19,7 @@ public class AlertFragment extends Fragment {
 
     public AlertFragment() {
         // Required empty public constructor
+
     }
 
 

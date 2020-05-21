@@ -13,9 +13,10 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import Fragmentos.AlertFragment;
+import Fragmentos.CiudadanoFragment2;
 import Fragmentos.DatosFragment;
 import Fragmentos.MapFragment;
-import Fragmentos.TriajeFragment;
+import Fragmentos.ciudadano_Fragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -53,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(menuItem.getItemId()==R.id.menu_triaje){
-                    mostrarFragmento(new TriajeFragment());
+                    mostrarFragmento(new ciudadano_Fragment());
+                    
                 }
 
                 if(menuItem.getItemId()==R.id.menu_datos){

@@ -1,4 +1,4 @@
-package com.pit.appcoronavirus;
+package Fragmentos;
 
 
 import android.os.Bundle;
@@ -9,14 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.pit.appcoronavirus.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ciudadano_Fragment extends Fragment {
+public class CiudadanoFragment2 extends Fragment {
 
 
-    public ciudadano_Fragment() {
+    public CiudadanoFragment2() {
         // Required empty public constructor
     }
 
@@ -25,7 +27,7 @@ public class ciudadano_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ciudadano_, container, false);
+        return inflater.inflate(R.layout.fragment_ciudadano_fragment2, container, false);
     }
 
 }

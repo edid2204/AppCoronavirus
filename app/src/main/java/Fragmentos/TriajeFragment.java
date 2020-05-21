@@ -18,9 +18,6 @@ import com.pit.appcoronavirus.R;
  */
 public class TriajeFragment extends Fragment {
 
-    //Declariacion de objetos
-    CheckBox chktos,chkfiebre,chkcansancio,chkrespirar,chkcontacto;
-    Button btnregistrar;
 
     public TriajeFragment() {
         // Required empty public constructor
