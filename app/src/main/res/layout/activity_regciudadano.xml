@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="Fragmentos.CiudadanoFragment2">
+    tools:context=".Regciudadano">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="Ingrese sus datos Personales"
+        android:layout_marginBottom="25dp"
+        android:text="Ingrese sus datos personales"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -20,64 +20,92 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Número de celular" />
+        android:text="Nombre Completo" />
 
     <EditText
-        android:id="@+id/edtNumero"
+        android:id="@+id/edtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:inputType="number"
         android:maxLength="9"/>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nacionalidad" />
-
-    <Spinner
-        android:id="@+id/spiNacionalidad"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:layout_marginBottom="40dp"/>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tipo de documento" />
-
-    <Spinner
-        android:id="@+id/spiTipodoc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:layout_marginBottom="40dp"/>
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Número de documento" />
+        android:text="Edad" />
 
     <EditText
-        android:id="@+id/edtNroDoc"
+        android:id="@+id/edtEdad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="20dp"
         android:inputType="number"
-        android:maxLength="8"/>
+        android:maxLength="9"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Direccion" />
+
+    <EditText
+        android:id="@+id/edtDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:inputType="number"
+        android:maxLength="9"/>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Departamento" />
+
+    <Spinner
+        android:id="@+id/spiDepartamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Provincia" />
+
+    <Spinner
+        android:id="@+id/spiProvincia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distrito" />
+
+    <Spinner
+        android:id="@+id/spiDistrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:layout_marginBottom="25dp"/>
 
     <Button
-        android:id="@+id/btnRegistrar"
+        android:id="@+id/btnContinuar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar"
+        android:text="Continuar"
         android:background="#F44336"
         android:textColor="#FCFBFB"
         android:textSize="15sp"
         android:textStyle="bold"/>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
