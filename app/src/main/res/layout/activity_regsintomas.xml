@@ -53,7 +53,7 @@
         android:text="¿Ha tenido contacto con paciente positivo covid?" />
 
     <Button
-        android:id="@+id/btnRegistrar"
+        android:id="@+id/btnRegSintomas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F44336"

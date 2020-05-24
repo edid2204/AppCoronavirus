@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    tools:context=".activity_regusuario">
 
     <TextView
         android:id="@+id/textView"
@@ -72,7 +71,7 @@
         android:maxLength="8"/>
 
     <Button
-        android:id="@+id/btnRegistrar"
+        android:id="@+id/btnRegUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registrar"

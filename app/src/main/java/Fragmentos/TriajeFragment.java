@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 
 import com.pit.appcoronavirus.R;
 import com.pit.appcoronavirus.Regciudadano;
@@ -34,7 +33,7 @@ public class TriajeFragment extends Fragment {
         View v= inflater.inflate(R.layout.fragment_triaje, container, false);
 
         //Encontrar el boton del fragment
-        Button btnTriaje=(Button) v.findViewById(R.id.btnRegTriaje);
+        Button btnTriaje=(Button) v.findViewById(R.id.btnIniTriaje);
 
         //Generar el evento click listener
         btnTriaje.setOnClickListener(new View.OnClickListener() {

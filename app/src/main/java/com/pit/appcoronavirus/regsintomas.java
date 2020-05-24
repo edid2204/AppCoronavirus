@@ -38,7 +38,7 @@ public class regsintomas extends AppCompatActivity {
         chkcansancio= (CheckBox) findViewById(R.id.chkcansancio);
         chkrespirar= (CheckBox) findViewById(R.id.chkrespirar);
         chkcontacto= (CheckBox) findViewById(R.id.chkcontacto);
-        btnregistrar=(Button) findViewById(R.id.btnRegistrar);
+        btnregistrar=(Button) findViewById(R.id.btnRegSintomas);
 
 
         btnregistrar.setOnClickListener(new View.OnClickListener() {
