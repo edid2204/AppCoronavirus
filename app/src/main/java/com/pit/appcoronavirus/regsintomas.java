@@ -1,5 +1,6 @@
 package com.pit.appcoronavirus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ public class regsintomas extends AppCompatActivity {
     //Declariacion de objetos
     CheckBox chktos,chkfiebre,chkcansancio,chkrespirar,chkcontacto;
     Button btnregistrar;
+    String dni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,14 @@ public class regsintomas extends AppCompatActivity {
         chkrespirar= (CheckBox) findViewById(R.id.chkrespirar);
         chkcontacto= (CheckBox) findViewById(R.id.chkcontacto);
         btnregistrar=(Button) findViewById(R.id.btnRegSintomas);
+        dni=getIntent().getStringExtra("dni");
 
 
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ejecutarServicio("http://192.168.1.61:8080/pitperu_bd/insertar_sintoma.php");
+                MenuPrincipal();
             }
         });
 
@@ -105,6 +109,7 @@ public class regsintomas extends AppCompatActivity {
                     cad5+="no";
                     parametros.put("contactoconfirmado",cad5);
                 }
+                parametros.put("dni",dni);
 
                 return parametros;
             }
@@ -112,6 +117,13 @@ public class regsintomas extends AppCompatActivity {
         //Proceso y ejecucion de peticion
         RequestQueue rq= Volley.newRequestQueue(this);
         rq.add(sr);
+
+    }
+
+    public void MenuPrincipal(){
+
+        Intent intent=new Intent(this,MenuPrincipal.class);
+        startActivity(intent);
 
     }
 

@@ -113,6 +113,7 @@ public class regciudadano2 extends AppCompatActivity {
     public void MostrarSintomas(){
 
         Intent intent=new Intent(this,regsintomas.class);
+        intent.putExtra("dni",nroDocum.getText().toString());
         startActivity(intent);
 
     }
