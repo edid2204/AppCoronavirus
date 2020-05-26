@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DatosActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="95dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="570dp"
+        android:text="Celular"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edtNumero"
+        android:layout_width="270dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="564dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="false"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="139dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="570dp"
+        android:text="Nacionalidad"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edtNacionalidad"
+        android:layout_width="270dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="510dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:clickable="false"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="206dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="570dp"
+        android:text="Tipo De Documento"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edtTipoDoc"
+        android:layout_width="182dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="450dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:clickable="false"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="206dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="570dp"
+        android:text="Nro.De Documento"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edtNroDoc"
+        android:layout_width="182dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="800dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:clickable="false"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import Fragmentos.AlertFragment;
 import Fragmentos.DatosFragment;
 import Fragmentos.MapFragment;
+import Fragmentos.MenuFragment;
 import Fragmentos.TriajeFragment;
 
 public class MenuPrincipal extends AppCompatActivity {
@@ -54,7 +55,7 @@ public class MenuPrincipal extends AppCompatActivity {
                 }
 
                 if(menuItem.getItemId()==R.id.menu_menu){
-
+                    mostrarFragmento(new MenuFragment());
                 }
 
                 return true;

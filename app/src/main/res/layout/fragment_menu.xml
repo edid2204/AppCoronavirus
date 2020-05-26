@@ -13,14 +13,22 @@
         android:id="@+id/btnDatosUsu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_user"
+        android:drawablePadding="8dp"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/ic_user"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#ef9a9a"
         android:text="Datos Usuario" />
 
     <Button
         android:id="@+id/btnNoticias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_triaje"
+        android:drawablePadding="8dp"
+        android:layout_marginBottom="40dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#ef9a9a"
         android:text="Noticias" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
