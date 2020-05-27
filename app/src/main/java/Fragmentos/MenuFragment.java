@@ -39,6 +39,7 @@ public class MenuFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), DatosActivity.class);
                 startActivity(intent);
+
             }
         });
 

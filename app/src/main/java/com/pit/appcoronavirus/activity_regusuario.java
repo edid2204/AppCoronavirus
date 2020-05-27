@@ -59,6 +59,10 @@ public class activity_regusuario extends AppCompatActivity {
     public void mostrarMenuPrincipal(){
 
         Intent intent=new Intent(this,MenuPrincipal.class);
+        intent.putExtra("numcel",numcel.getText().toString());
+        intent.putExtra("spinac",spinac.getSelectedItem().toString());
+        intent.putExtra("spitipo",spitipo.getSelectedItem().toString());
+        intent.putExtra("numdoc",numdoc.getText().toString());
         startActivity(intent);
 
     }

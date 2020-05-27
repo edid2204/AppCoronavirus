@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -56,12 +57,16 @@ public class MenuPrincipal extends AppCompatActivity {
 
                 if(menuItem.getItemId()==R.id.menu_menu){
                     mostrarFragmento(new MenuFragment());
+                    Bundle bundle=getIntent().getExtras();
                 }
 
                 return true;
             }
 
         });
+
+
+
 
     }
 
@@ -72,4 +77,5 @@ public class MenuPrincipal extends AppCompatActivity {
                 .commit();
 
     }
+
 }

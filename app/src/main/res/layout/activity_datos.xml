@@ -11,112 +11,108 @@
         android:id="@+id/textView1"
         android:layout_width="95dp"
         android:layout_height="39dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="570dp"
+        android:layout_marginStart="20dp"
         android:text="Celular"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.058" />
 
-    <EditText
-        android:id="@+id/edtNumero"
+    <TextView
+        android:id="@+id/txtNumero"
         android:layout_width="270dp"
         android:layout_height="0dp"
         android:layout_marginStart="80dp"
-        android:layout_marginBottom="564dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="540dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        android:clickable="false"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="139dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="570dp"
         android:text="Nacionalidad"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.118" />
 
-    <EditText
-        android:id="@+id/edtNacionalidad"
+    <TextView
+        android:id="@+id/txtNac"
         android:layout_width="270dp"
         android:layout_height="0dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginBottom="510dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="460dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:clickable="false"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="206dp"
         android:layout_height="37dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="570dp"
         android:text="Tipo De Documento"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.21" />
 
-    <EditText
-        android:id="@+id/edtTipoDoc"
+    <TextView
+        android:id="@+id/txtTipoDoc"
         android:layout_width="182dp"
         android:layout_height="46dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="450dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:clickable="false"/>
+        app:layout_constraintVertical_bias="0.194" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="206dp"
         android:layout_height="37dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="150dp"
-        android:layout_marginBottom="570dp"
         android:text="Nro.De Documento"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.35" />
 
-    <EditText
-        android:id="@+id/edtNroDoc"
+    <TextView
+        android:id="@+id/txtNroDoc"
         android:layout_width="182dp"
         android:layout_height="46dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="150dp"
-        android:layout_marginBottom="800dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:clickable="false"/>
+        app:layout_constraintVertical_bias="0.334" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
