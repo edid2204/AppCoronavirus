@@ -57,7 +57,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
                 if(menuItem.getItemId()==R.id.menu_menu){
                     mostrarFragmento(new MenuFragment());
-                    Bundle bundle=getIntent().getExtras();
+
                 }
 
                 return true;

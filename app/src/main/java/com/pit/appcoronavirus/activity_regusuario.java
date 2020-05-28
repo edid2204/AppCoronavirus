@@ -51,20 +51,25 @@ public class activity_regusuario extends AppCompatActivity {
 
                 //Muestra Menu Principal
                 mostrarMenuPrincipal();
+                enviarDatosUsu();
             }
         });
 
     }
 
     public void mostrarMenuPrincipal(){
-
         Intent intent=new Intent(this,MenuPrincipal.class);
+
+        startActivity(intent);
+    }
+
+    public void enviarDatosUsu(){
+        Intent intent=new Intent(this,DatosActivity.class);
         intent.putExtra("numcel",numcel.getText().toString());
         intent.putExtra("spinac",spinac.getSelectedItem().toString());
         intent.putExtra("spitipo",spitipo.getSelectedItem().toString());
         intent.putExtra("numdoc",numdoc.getText().toString());
         startActivity(intent);
-
     }
 
 
