@@ -46,7 +46,7 @@ public class Regciudadano extends AppCompatActivity {
 
         //Obtener referencia para envio de datos
         nomCiudadano=(EditText) findViewById(R.id.edtNombre);
-        edad=(EditText) findViewById(R.id.edtEdad);
+        //edad=(EditText) findViewById(R.id.edtEdad);
         direccion=(EditText) findViewById(R.id.edtDireccion);
         spiDep=(Spinner) findViewById(R.id.spiDepartamento);
         spiProv=(Spinner) findViewById(R.id.spiProvincia);
