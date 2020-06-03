@@ -47,7 +47,7 @@ public class regsintomas extends AppCompatActivity {
         btnregistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarServicio("http://192.168.1.61:8080/pitperu_bd/insertar_sintoma.php");
+                ejecutarServicio("http://pit-grupo2.j.layershift.co.uk/Servicios/insertar_sintoma.php");
                 MenuPrincipal();
             }
         });

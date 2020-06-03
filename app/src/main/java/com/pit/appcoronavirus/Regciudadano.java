@@ -96,7 +96,7 @@ public class Regciudadano extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ejecutarServicio("http://192.168.1.61:8080/pitperu_bd/insertar_ciudadano.php");
+                ejecutarServicio("http://pit-grupo2.j.layershift.co.uk/Servicios/insertar_ciudadano.php");
                 //Llama activiy Sintomas
                 MostrarSintomas();
 
