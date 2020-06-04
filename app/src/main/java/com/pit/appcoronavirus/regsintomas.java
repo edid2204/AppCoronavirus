@@ -3,31 +3,23 @@ package com.pit.appcoronavirus;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Toast;
-
-
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class regsintomas extends AppCompatActivity {
 
     //Declariacion de objetos
-    CheckBox chktos,chkfiebre,chkcansancio,chkrespirar,chkcontacto;
-    Button btnregistrar;
-    String dni;
+    CheckBox chkgusto,chktos,chkgarganta,chkrespirar,chkcongestion,chkfiebre,chkotro;
+    EditText edtotro;
+    RadioButton rbtfiebre1,rbtfiebre2;
+    Spinner spidia,spimes,spiano;
+    Button btncontinuar;
+    String dni, cad1="",cad2="",cad3="",cad4="",cad5="",cad6="",cad7="",cad8="",cad9="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,95 +27,117 @@ public class regsintomas extends AppCompatActivity {
         setContentView(R.layout.activity_regsintomas);
 
         //Obtener referencia para envio de datos
+        chkgusto= (CheckBox) findViewById(R.id.chkgusto);
         chktos= (CheckBox) findViewById(R.id.chktos);
-        chkfiebre= (CheckBox) findViewById(R.id.chkfiebre);
-        chkcansancio= (CheckBox) findViewById(R.id.chkcansancio);
+        chkgarganta= (CheckBox) findViewById(R.id.chkgarganta);
         chkrespirar= (CheckBox) findViewById(R.id.chkrespirar);
-        chkcontacto= (CheckBox) findViewById(R.id.chkcontacto);
-        btnregistrar=(Button) findViewById(R.id.btnRegSintomas);
+        chkcongestion= (CheckBox) findViewById(R.id.chkcongestion);
+        chkfiebre= (CheckBox) findViewById(R.id.chkfiebre);
+        rbtfiebre1=(RadioButton) findViewById(R.id.rbtfiebre1);
+        rbtfiebre2=(RadioButton) findViewById(R.id.rbtfiebre2);
+        chkotro= (CheckBox) findViewById(R.id.chkotro);
+        edtotro=(EditText) findViewById(R.id.edtOtro);
+        spidia= (Spinner) findViewById(R.id.spiDia);
+        spimes= (Spinner) findViewById(R.id.spiMes);
+        spiano= (Spinner) findViewById(R.id.spiAno);
+        btncontinuar=(Button) findViewById(R.id.btnContinuar);
+
+        //Crear Adapter Dia
+        String[] Dia=new String[]{"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
+        ArrayAdapter<String> adpdia=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,Dia);
+        spidia.setAdapter(adpdia);
+
+        //Crear Adapter Mes
+        String[] Mes=new String[]{"01","02","03","04","05","06","07","08","09","10","11","12"};
+        ArrayAdapter<String> adpmes=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,Mes);
+        spimes.setAdapter(adpmes);
+
+        //Crear Adapter Año
+        String[] Ano=new String[]{"1970","1980","1999","2000","2020"};
+        ArrayAdapter<String> adpano=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,Ano);
+        spiano.setAdapter(adpano);
+
         dni=getIntent().getStringExtra("dni");
 
+        if(chkgusto.isChecked()==true){
+            cad1+="si";
+        }else{
+            cad1+="no";
+        }
 
-        btnregistrar.setOnClickListener(new View.OnClickListener() {
+        if(chktos.isChecked()==true){
+            cad2+="si";
+        }else{
+            cad2+="no";
+        }
+
+        if(chkgarganta.isChecked()==true){
+            cad3+="si";
+        }else{
+            cad3+="no";
+        }
+        if(chkrespirar.isChecked()==true){
+            cad4+="si";
+        }else{
+            cad4+="no";
+        }
+        if(chkcongestion.isChecked()==true){
+            cad5+="si";
+        }else{
+            cad5+="no";
+        }
+        if(chkfiebre.isChecked()==true){
+            cad6+="si";
+        }else{
+            cad6+="no";
+        }
+        if(rbtfiebre1.isChecked()==true){
+            cad7+="si";
+        }else{
+            cad7+="no";
+        }
+        if(rbtfiebre2.isChecked()==true){
+            cad8+="si";
+        }else{
+            cad8+="no";
+        }
+        if(chkotro.isChecked()==true){
+            cad9+="si";
+        }else{
+            cad9+="no";
+        }
+
+        btncontinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarServicio("http://pit-grupo2.j.layershift.co.uk/Servicios/insertar_sintoma.php");
-                MenuPrincipal();
+
+
+                mostrarRiesgos();
+
             }
         });
 
     }
 
-    private void ejecutarServicio(String URL){
-        //Declara peticion y tipo
-        StringRequest sr=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(),"SE REGISTRO SINTOMAS",Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error){
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
-            }
+    public void mostrarRiesgos(){
 
-        }){
-            //Envio de parametros
-            protected Map<String,String> getParams() throws AuthFailureError {
-                Map<String,String> parametros=new HashMap<String,String>();
-
-                String cad1="",cad2="",cad3="",cad4="",cad5="";
-
-                if(chktos.isChecked()==true){
-                    cad1+="si";
-                    parametros.put("tos",cad1);
-                }else{
-                    cad1+="no";
-                    parametros.put("tos",cad1);
-                }
-                if(chkfiebre.isChecked()==true){
-                    cad2+="si";
-                    parametros.put("fiebre",cad2);
-                }else{
-                    cad2+="no";
-                    parametros.put("fiebre",cad2);
-                }
-                if(chkcansancio.isChecked()==true){
-                    cad3+="si";
-                    parametros.put("cansancio",cad3);
-                }else{
-                    cad3+="no";
-                    parametros.put("cansancio",cad3);
-                }
-                if(chkrespirar.isChecked()==true){
-                    cad4+="si";
-                    parametros.put("dificultadrespirar",cad4);
-                }else{
-                    cad4+="no";
-                    parametros.put("dificultadrespirar",cad4);
-                }
-                if(chkcontacto.isChecked()==true){
-                    cad5+="si";
-                    parametros.put("contactoconfirmado",cad5);
-                }else{
-                    cad5+="no";
-                    parametros.put("contactoconfirmado",cad5);
-                }
-                parametros.put("dni",dni);
-
-                return parametros;
-            }
-        };
-        //Proceso y ejecucion de peticion
-        RequestQueue rq= Volley.newRequestQueue(this);
-        rq.add(sr);
-
-    }
-
-    public void MenuPrincipal(){
-
-        Intent intent=new Intent(this,MenuPrincipal.class);
+        Intent intent=new Intent(this,regriesgos.class);
+        intent.putExtra("dni",dni);
+        intent.putExtra("gusto",cad1);
+        intent.putExtra("tos",cad2);
+        intent.putExtra("garganta",cad3);
+        intent.putExtra("respirar",cad4);
+        intent.putExtra("congestion",cad5);
+        intent.putExtra("fiebre",cad6);
+        intent.putExtra("fiebre1",cad7);
+        intent.putExtra("fiebre2",cad8);
+        intent.putExtra("otro",cad9);
+        intent.putExtra("obs",edtotro.getText().toString());
+        intent.putExtra("dia",spidia.getSelectedItem().toString());
+        intent.putExtra("mes",spimes.getSelectedItem().toString());
+        intent.putExtra("ano",spiano.getSelectedItem().toString());
         startActivity(intent);
+
 
     }
 

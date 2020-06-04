@@ -23,6 +23,10 @@
             android:name=".regsintomas"
             android:label="@string/title_activity_regsintomas"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".regriesgos"
+            android:label="Triaje"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

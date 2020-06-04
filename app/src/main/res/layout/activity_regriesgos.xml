@@ -4,177 +4,144 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".regsintomas">
+    tools:context=".regriesgos">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:text="¿Que sintomas tiene?
-              Marca tus sintomas y luego continua en la siguiente pantalla."
-        android:textSize="30dp"
+        android:text="Situaciones de riesgo"
+        android:textSize="40dp"
         android:textStyle="bold" />
 
     <CheckBox
-        android:id="@+id/chkgusto"
+        android:id="@+id/chkalerta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="Disminución del gusto o del olfato" />
+        android:text="¿Has recibido un SMS o alerta sobre posible contacto con un caso confirmado de COVID-19, en los últimos 14 dias?" />
 
     <CheckBox
-        android:id="@+id/chktos"
+        android:id="@+id/chkcontacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="Tos" />
+        android:text="¿En los últimos 14 dias, has tenido contacto con un caso confirmado de coronavirus COVID-19?" />
 
     <CheckBox
-        android:id="@+id/chkgarganta"
+        android:id="@+id/chksalir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="Dolor de garganta" />
+        android:text="¿En los últimos 14 dias, te has desplazado a un distrito diferente al de tu residencia?" />
 
     <CheckBox
-        android:id="@+id/chkrespirar"
+        android:id="@+id/chktrabajo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="Dificultad para respirar" />
-
-    <CheckBox
-        android:id="@+id/chkcongestion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:text="Congestion nasal" />
-
-    <CheckBox
-        android:id="@+id/chkfiebre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:text="Fiebre" />
-
-    <RadioButton
-        android:id="@+id/rbtfiebre1"
-        android:layout_marginLeft="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fiebre menor a 38°C."
-        android:textAlignment="gravity"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <RadioButton
-        android:id="@+id/rbtfiebre2"
-        android:layout_marginLeft="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        android:text="Fiebre mayoy igual a 38°C."/>
-
-    <CheckBox
-        android:id="@+id/chkotro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:text="Otro" />
-
-    <EditText
-        android:id="@+id/edtOtro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:textSize="20dp"
-        android:inputType="text"
-        android:maxLength="30"/>
+        android:text="¿Trabajas en algún establecimiento de salud?" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="¿En qué fecha iniciaron los sintomas?
-        Sino recuerdas la fecha exacta, coloca una fecha aproximada."
+        android:layout_marginBottom="30dp"
+        android:text="Tienes algunas de las siguientes enfermedades o condiciones? Marca las que apliquen"
         android:textSize="20dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="Dia" />
-
-    <Spinner
-        android:id="@+id/spiDia"
+    <CheckBox
+        android:id="@+id/chkobesidad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:layout_marginBottom="20dp"/>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="Mes" />
-
-    <Spinner
-        android:id="@+id/spiMes"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:text="Obesidad" />
+    <CheckBox
+        android:id="@+id/chkpulmonar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:layout_marginBottom="20dp"/>
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="Año" />
-
-    <Spinner
-        android:id="@+id/spiAno"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:text="Enfermedad pulmonar cronica" />
+    <CheckBox
+        android:id="@+id/chkasma"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:spinnerMode="dropdown"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:text="Asma" />
+    <CheckBox
+        android:id="@+id/chkdiabetes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:text="Diabetes" />
+    <CheckBox
+        android:id="@+id/chkhipertension"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:text="Hipertensión arterial" />
+    <CheckBox
+        android:id="@+id/chkinmune"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:text="Enfermedad o tratamiento inmunosupresor" />
+
+    <CheckBox
+        android:id="@+id/chkcardio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:text="Enfermedad cardiovascular" />
+
+    <CheckBox
+        android:id="@+id/chkrenal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:text="Insuficiencia renal cronica" />
+
+    <CheckBox
+        android:id="@+id/chkcancer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:textSize="20dp"
+        android:text="Cancer" />
 
     <Button
-        android:id="@+id/btnContinuar"
+        android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F44336"
-        android:text="Continuar"
+        android:text="Registrar Triaje"
         android:textColor="#FCFBFB"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -190,7 +157,7 @@
         android:textSize="15sp"
         android:textStyle="bold" />
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     </ScrollView>
 
