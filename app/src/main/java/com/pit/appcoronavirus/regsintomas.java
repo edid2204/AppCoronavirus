@@ -59,59 +59,9 @@ public class regsintomas extends AppCompatActivity {
 
         dni=getIntent().getStringExtra("dni");
 
-        if(chkgusto.isChecked()==true){
-            cad1+="si";
-        }else{
-            cad1+="no";
-        }
-
-        if(chktos.isChecked()==true){
-            cad2+="si";
-        }else{
-            cad2+="no";
-        }
-
-        if(chkgarganta.isChecked()==true){
-            cad3+="si";
-        }else{
-            cad3+="no";
-        }
-        if(chkrespirar.isChecked()==true){
-            cad4+="si";
-        }else{
-            cad4+="no";
-        }
-        if(chkcongestion.isChecked()==true){
-            cad5+="si";
-        }else{
-            cad5+="no";
-        }
-        if(chkfiebre.isChecked()==true){
-            cad6+="si";
-        }else{
-            cad6+="no";
-        }
-        if(rbtfiebre1.isChecked()==true){
-            cad7+="si";
-        }else{
-            cad7+="no";
-        }
-        if(rbtfiebre2.isChecked()==true){
-            cad8+="si";
-        }else{
-            cad8+="no";
-        }
-        if(chkotro.isChecked()==true){
-            cad9+="si";
-        }else{
-            cad9+="no";
-        }
-
         btncontinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 mostrarRiesgos();
 
             }
@@ -123,21 +73,78 @@ public class regsintomas extends AppCompatActivity {
 
         Intent intent=new Intent(this,regriesgos.class);
         intent.putExtra("dni",dni);
-        intent.putExtra("gusto",cad1);
-        intent.putExtra("tos",cad2);
-        intent.putExtra("garganta",cad3);
-        intent.putExtra("respirar",cad4);
-        intent.putExtra("congestion",cad5);
-        intent.putExtra("fiebre",cad6);
-        intent.putExtra("fiebre1",cad7);
-        intent.putExtra("fiebre2",cad8);
-        intent.putExtra("otro",cad9);
+
+        if(chkgusto.isChecked()==true){
+            cad1+="si";
+            intent.putExtra("gusto",cad1);
+        }else{
+            cad1+="no";
+            intent.putExtra("gusto",cad1);
+        }
+
+        if(chktos.isChecked()==true){
+            cad2+="si";
+            intent.putExtra("tos",cad2);
+        }else{
+            cad2+="no";
+            intent.putExtra("tos",cad2);
+        }
+
+        if(chkgarganta.isChecked()==true){
+            cad3+="si";
+            intent.putExtra("garganta",cad3);
+        }else{
+            cad3+="no";
+            intent.putExtra("garganta",cad3);
+        }
+        if(chkrespirar.isChecked()==true){
+            cad4+="si";
+            intent.putExtra("respirar",cad4);
+        }else{
+            cad4+="no";
+            intent.putExtra("respirar",cad4);
+        }
+        if(chkcongestion.isChecked()==true){
+            cad5+="si";
+            intent.putExtra("congestion",cad5);
+        }else{
+            cad5+="no";
+            intent.putExtra("congestion",cad5);
+        }
+        if(chkfiebre.isChecked()==true){
+            cad6+="si";
+            intent.putExtra("fiebre",cad6);
+        }else{
+            cad6+="no";
+            intent.putExtra("fiebre",cad6);
+        }
+        if(rbtfiebre1.isChecked()==true){
+            cad7+="si";
+            intent.putExtra("fiebre1",cad7);
+        }else{
+            cad7+="no";
+            intent.putExtra("fiebre1",cad7);
+        }
+        if(rbtfiebre2.isChecked()==true){
+            cad8+="si";
+            intent.putExtra("fiebre2",cad8);
+        }else{
+            cad8+="no";
+            intent.putExtra("fiebre2",cad8);
+        }
+        if(chkotro.isChecked()==true){
+            cad9+="si";
+            intent.putExtra("otro",cad9);
+        }else{
+            cad9+="no";
+            intent.putExtra("otro",cad9);
+        }
+
         intent.putExtra("obs",edtotro.getText().toString());
         intent.putExtra("dia",spidia.getSelectedItem().toString());
         intent.putExtra("mes",spimes.getSelectedItem().toString());
         intent.putExtra("ano",spiano.getSelectedItem().toString());
         startActivity(intent);
-
 
     }
 

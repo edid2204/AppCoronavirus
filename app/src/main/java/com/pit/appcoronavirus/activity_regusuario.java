@@ -1,27 +1,16 @@
 package com.pit.appcoronavirus;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class activity_regusuario extends AppCompatActivity {
 
@@ -61,45 +50,13 @@ public class activity_regusuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ejecutarServicio("http://pit-grupo2.j.layershift.co.uk/Servicios/insertar_usuario.php");
-
                 //Muestra Menu Principal
                 mostrarMenuPrincipal();
+                //Cargar datos del propietario del celular
+                cargarPreferencias();
 
             }
         });
-
-    }
-
-    //Metodo que envia las peticiones al server url: ruta del webservice
-    private void ejecutarServicio(String URL){
-        //Declara peticion y tipo
-        StringRequest sr=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(),"SE REGISTRO USUARIO",Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error){
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
-            }
-
-        }){
-            //Envio de parametros
-            protected Map<String,String> getParams() throws AuthFailureError {
-                Map<String,String> parametros=new HashMap<String,String>();
-
-                parametros.put("NumCelular",numcel.getText().toString());
-                parametros.put("Nacionalidad",spinac.getSelectedItem().toString());
-                parametros.put("TipoDocumento",spitipo.getSelectedItem().toString());
-                parametros.put("NumDocumento",numdoc.getText().toString());
-                return parametros;
-            }
-        };
-        //Creacion de cola para agrgar la conexion para su ejecucion
-        RequestQueue rq= Volley.newRequestQueue(this);
-        rq.add(sr);
 
     }
 
@@ -108,6 +65,27 @@ public class activity_regusuario extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+    //Cargar datos en archivo de preferencias
+    public void cargarPreferencias(){
+
+        //Almacenamiento de parametros en archivo de preferencias
+        SharedPreferences preferencias= getSharedPreferences("variables",Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor=preferencias.edit();
+
+        editor.putString("NumCelular",numcel.getText().toString());
+        editor.putString("Nacionalidad",spinac.getSelectedItem().toString());
+        editor.putString("TipoDocumento",spitipo.getSelectedItem().toString());
+        editor.putString("NumDocumento",numdoc.getText().toString());
+        editor.commit();
+    }
+
+
+
+
+
+
 
 
 }

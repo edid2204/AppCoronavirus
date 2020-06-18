@@ -2,26 +2,21 @@ package com.pit.appcoronavirus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONObject;
-
-
 public class DatosActivity extends AppCompatActivity {
 
-    TextView txtNum1,txtNac1,txtTipo1,txtDoc1;
+    TextView txtNum,txtNac,txtTipo,txtDoc;
     Button btnRegresar;
+    String num,nac,tipo,doc;
+
+
 
 
     @Override
@@ -29,11 +24,24 @@ public class DatosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos);
 
-        txtNum1=(TextView) findViewById(R.id.txtNumero);
-        txtNac1=(TextView) findViewById(R.id.txtNac);
-        txtTipo1=(TextView) findViewById(R.id.txtTipoDoc);
-        txtDoc1=(TextView) findViewById(R.id.txtNroDoc);
 
+
+        txtNum=(TextView) findViewById(R.id.txtNumero);
+        txtNac=(TextView) findViewById(R.id.txtNac);
+        txtTipo=(TextView) findViewById(R.id.txtTipoDoc);
+        txtDoc=(TextView) findViewById(R.id.txtNroDoc);
+
+        SharedPreferences preferencias=getSharedPreferences("variables",Context.MODE_PRIVATE);
+
+        num=preferencias.getString("NumCelular","");
+        nac= preferencias.getString("Nacionalidad","");
+        tipo=preferencias.getString("TipoDocumento","");
+        doc=preferencias.getString("NumDocumento","");
+
+        txtNum.setText(num);
+        txtNac.setText(nac);
+        txtTipo.setText(tipo);
+        txtDoc.setText(doc);
 
         btnRegresar=(Button) findViewById(R.id.btnRegresar);
 

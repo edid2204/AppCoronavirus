@@ -67,7 +67,10 @@ public class regriesgos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ejecutarServicio("http://pit-grupo2.j.layershift.co.uk/Servicios/insertar_sintoma.php");
+                ejecutarServicio("http://pit-covid19.j.layershift.co.uk/Services/insertar_sintoma.php");
+
+                //ejecutarServicio("http://covidpit.j.layershift.co.uk/servcio_java/rest/sintomas/");
+
                 mostrarMenuPrincipal();
             }
         });
@@ -106,6 +109,7 @@ public class regriesgos extends AppCompatActivity {
                 parametros.put("dia",dia);
                 parametros.put("mes",mes);
                 parametros.put("ano",ano);
+                parametros.put("estado","");
 
                 String cad1="",cad2="",cad3="",cad4="",cad5="",cad6="",cad7="",cad8="",cad9="",cad10="",cad11="",cad12="",cad13="";
 
