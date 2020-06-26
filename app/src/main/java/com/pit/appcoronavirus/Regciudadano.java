@@ -103,9 +103,9 @@ public class Regciudadano extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ejecutarServicio("http://pit-covid19.j.layershift.co.uk/Services/insertar_ciudadano.php");
+                //ejecutarServicio("http://pit-covid19.j.layershift.co.uk/Services/insertar_ciudadano.php");
 
-                //ejecutarServicio("http://covidpit.j.layershift.co.uk/servcio_java/rest/ciudadano/");
+                ejecutarServicio("http://env-6410274.j.layershift.co.uk/servicio_web/rest/ciudadano/");
                 //Llama activiy Sintomas
                 MostrarSintomas();
 
@@ -116,52 +116,44 @@ public class Regciudadano extends AppCompatActivity {
     }
 
 
-    /*
+
     //Metodo que envia las peticiones al server url: ruta del webservice para Java
     private void ejecutarServicio(String URL){
 
-        JSONObject js=new JSONObject();
+            Map<String,String> parametros=new HashMap<String,String>();
+            parametros.put("nacionalidad",spiNac.getSelectedItem().toString());
+            parametros.put("tipoDocumento",spiTipoDoc.getSelectedItem().toString());
+            parametros.put("numDocumento",nroDocum.getText().toString());
+            parametros.put("numCelular",nroCell.getText().toString());
+            parametros.put("nombre",nomCiudadano.getText().toString());
+            parametros.put("dia",spiDia.getSelectedItem().toString());
+            parametros.put("mes",spiMes.getSelectedItem().toString());
+            parametros.put("ano",spiAno.getSelectedItem().toString());
+            parametros.put("direccion",direccion.getText().toString());
+            parametros.put("dep",spiDep.getSelectedItem().toString());
+            parametros.put("prov",spiProv.getSelectedItem().toString());
+            parametros.put("dis",spiDis.getSelectedItem().toString());
+
+        JSONObject js=new JSONObject(parametros);
 
         JsonObjectRequest jr=new JsonObjectRequest(Request.Method.POST, URL, js, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Log.d("msj",response.toString()+"Se registro Ciudadano");
+                Toast.makeText(getApplicationContext(),response.toString(),Toast.LENGTH_SHORT).show();
             }
         },new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
-                VolleyLog.d("Msj","Error: "+error.getMessage());
+                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
             }
-        }){
-
-            @Override
-            public Map<String,String> getParams() throws AuthFailureError {
-                HashMap<String,String> parametros=new HashMap<String,String>();
-                parametros.put("Nacionalidad",spiNac.getSelectedItem().toString());
-                parametros.put("TipoDocumento",spiTipoDoc.getSelectedItem().toString());
-                parametros.put("NumDocumento",nroDocum.getText().toString());
-                parametros.put("NumCelular",nroCell.getText().toString());
-                parametros.put("Nombre",nomCiudadano.getText().toString());
-                parametros.put("Dia",spiDia.getSelectedItem().toString());
-                parametros.put("Mes",spiMes.getSelectedItem().toString());
-                parametros.put("Ano",spiAno.getSelectedItem().toString());
-                parametros.put("Direccion",direccion.getText().toString());
-                parametros.put("Departamento",spiDep.getSelectedItem().toString());
-                parametros.put("Provincia",spiProv.getSelectedItem().toString());
-                parametros.put("Distrito",spiDis.getSelectedItem().toString());
-
-                return parametros;
-            }
-
-
-        };
+        });
 
         Volley.newRequestQueue(this).add(jr);
     }
-*/
 
 
 
+/*
     //Metodo que envia las peticiones al server url: ruta del webservice para PHP
     private void ejecutarServicio(String URL){
         //Declara peticion y tipo
@@ -201,7 +193,7 @@ public class Regciudadano extends AppCompatActivity {
         rq.add(sr);
 
     }
-
+*/
     //Muestra inteface de Sintomas enviando parametro dni
     public void MostrarSintomas(){
 

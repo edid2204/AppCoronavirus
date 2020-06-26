@@ -75,68 +75,68 @@ public class regsintomas extends AppCompatActivity {
         intent.putExtra("dni",dni);
 
         if(chkgusto.isChecked()==true){
-            cad1+="si";
+            cad1+="Sí";
             intent.putExtra("gusto",cad1);
         }else{
-            cad1+="no";
+            cad1+="No";
             intent.putExtra("gusto",cad1);
         }
 
         if(chktos.isChecked()==true){
-            cad2+="si";
+            cad2+="Sí";
             intent.putExtra("tos",cad2);
         }else{
-            cad2+="no";
+            cad2+="No";
             intent.putExtra("tos",cad2);
         }
 
         if(chkgarganta.isChecked()==true){
-            cad3+="si";
+            cad3+="Sí";
             intent.putExtra("garganta",cad3);
         }else{
-            cad3+="no";
+            cad3+="No";
             intent.putExtra("garganta",cad3);
         }
         if(chkrespirar.isChecked()==true){
-            cad4+="si";
+            cad4+="Sí";
             intent.putExtra("respirar",cad4);
         }else{
-            cad4+="no";
+            cad4+="No";
             intent.putExtra("respirar",cad4);
         }
         if(chkcongestion.isChecked()==true){
-            cad5+="si";
+            cad5+="Sí";
             intent.putExtra("congestion",cad5);
         }else{
-            cad5+="no";
+            cad5+="No";
             intent.putExtra("congestion",cad5);
         }
         if(chkfiebre.isChecked()==true){
-            cad6+="si";
+            cad6+="Sí";
             intent.putExtra("fiebre",cad6);
         }else{
-            cad6+="no";
+            cad6+="No";
             intent.putExtra("fiebre",cad6);
         }
         if(rbtfiebre1.isChecked()==true){
-            cad7+="si";
+            cad7+="Sí";
             intent.putExtra("fiebre1",cad7);
         }else{
-            cad7+="no";
+            cad7+="No";
             intent.putExtra("fiebre1",cad7);
         }
         if(rbtfiebre2.isChecked()==true){
-            cad8+="si";
+            cad8+="Sí";
             intent.putExtra("fiebre2",cad8);
         }else{
-            cad8+="no";
+            cad8+="No";
             intent.putExtra("fiebre2",cad8);
         }
         if(chkotro.isChecked()==true){
-            cad9+="si";
+            cad9+="Sí";
             intent.putExtra("otro",cad9);
         }else{
-            cad9+="no";
+            cad9+="No";
             intent.putExtra("otro",cad9);
         }
 
