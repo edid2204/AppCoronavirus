@@ -11,6 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.util.regex.Pattern;
 
 public class activity_regusuario extends AppCompatActivity {
 
@@ -50,11 +53,23 @@ public class activity_regusuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Muestra Menu Principal
-                mostrarMenuPrincipal();
-                //Cargar datos del propietario del celular
-                cargarPreferencias();
+                Pattern p=Pattern.compile("[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
+                Pattern p1=Pattern.compile("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
 
+                if(numcel.getText().toString().trim().equalsIgnoreCase("")) {
+                    Toast.makeText(getApplicationContext(), "FAVOR DE REGISTRAR CELULAR", Toast.LENGTH_SHORT).show();
+                }else if(numdoc.getText().toString().trim().equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(),"FAVOR DE REGISTRAR NUMERO DE DOCUMENTO",Toast.LENGTH_SHORT).show();
+                }else if(p.matcher(numcel.getText().toString()).matches()==false){
+                    Toast.makeText(getApplicationContext(), "FAVOR DE INGRESAR 9 DIGITOS EN CELULAR", Toast.LENGTH_SHORT).show();
+                }else if(p1.matcher(numdoc.getText().toString()).matches()==false){
+                    Toast.makeText(getApplicationContext(), "FAVOR DE INGRESAR 8 DIGITOS EN DNI", Toast.LENGTH_SHORT).show();
+                }else {
+                    //Muestra Menu Principal
+                    mostrarMenuPrincipal();
+                    //Cargar datos del propietario del celular
+                    cargarPreferencias();
+                }
             }
         });
 

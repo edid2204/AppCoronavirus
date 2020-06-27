@@ -28,6 +28,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class Regciudadano extends AppCompatActivity {
 
@@ -103,12 +104,34 @@ public class Regciudadano extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //ejecutarServicio("http://pit-covid19.j.layershift.co.uk/Services/insertar_ciudadano.php");
+                Pattern p=Pattern.compile("[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
+                Pattern p1=Pattern.compile("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
+                Pattern p2=Pattern.compile("[a-zA-Z]");
+                Pattern p3=Pattern.compile("[a-zA-Z 0-9]");
 
-                ejecutarServicio("http://env-6410274.j.layershift.co.uk/servicio_web/rest/ciudadano/");
-                //Llama activiy Sintomas
-                MostrarSintomas();
 
+
+                if(nroCell.getText().toString().trim().equalsIgnoreCase("")) {
+                    Toast.makeText(getApplicationContext(), "FAVOR DE REGISTRAR CELULAR", Toast.LENGTH_SHORT).show();
+                }else if(nroDocum.getText().toString().trim().equalsIgnoreCase("")){
+                    Toast.makeText(getApplicationContext(),"FAVOR DE REGISTRAR NUMERO DE DOCUMENTO",Toast.LENGTH_SHORT).show();
+                }else if(p.matcher(nroCell.getText().toString()).matches()==false){
+                    Toast.makeText(getApplicationContext(), "FAVOR DE INGRESAR 9 DIGITOS EN CELULAR", Toast.LENGTH_SHORT).show();
+                }else if(p1.matcher(nroDocum.getText().toString()).matches()==false){
+                    Toast.makeText(getApplicationContext(), "FAVOR DE INGRESAR 8 DIGITOS EN DNI", Toast.LENGTH_SHORT).show();
+                }else if(p2.matcher(nomCiudadano.getText().toString()).matches()==false) {
+                    Toast.makeText(getApplicationContext(), "FAVOR INGRESAR LETRAS EN NOMBRE", Toast.LENGTH_SHORT).show();
+                }else if(p3.matcher(direccion.getText().toString()).matches()==false) {
+                    Toast.makeText(getApplicationContext(), "FAVOR INGRESAR LETRAS Y NUMEROS EN DIRECCION", Toast.LENGTH_SHORT).show();
+                }else
+                    {
+
+                    //ejecutarServicio("http://pit-covid19.j.layershift.co.uk/Services/insertar_ciudadano.php");
+
+                    ejecutarServicio("http://env-6410274.j.layershift.co.uk/servicio_web/rest/ciudadano/");
+                    //Llama activiy Sintomas
+                    MostrarSintomas();
+                }
             }
         });
 
