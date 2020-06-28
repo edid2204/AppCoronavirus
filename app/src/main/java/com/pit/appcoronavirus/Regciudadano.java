@@ -106,15 +106,15 @@ public class Regciudadano extends AppCompatActivity {
 
                 Pattern p=Pattern.compile("[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
                 Pattern p1=Pattern.compile("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
-                Pattern p2=Pattern.compile("[a-zA-Z]");
-                Pattern p3=Pattern.compile("[a-zA-Z 0-9]");
+                Pattern p2=Pattern.compile("/A-Za-z/");
+                Pattern p3=Pattern.compile("/^[A-Za-z0-9 ]$");
 
 
-
-                if(nroCell.getText().toString().trim().equalsIgnoreCase("")) {
-                    Toast.makeText(getApplicationContext(), "FAVOR DE REGISTRAR CELULAR", Toast.LENGTH_SHORT).show();
-                }else if(nroDocum.getText().toString().trim().equalsIgnoreCase("")){
+                if(nroDocum.getText().toString().trim().equalsIgnoreCase("")){
                     Toast.makeText(getApplicationContext(),"FAVOR DE REGISTRAR NUMERO DE DOCUMENTO",Toast.LENGTH_SHORT).show();
+                }
+                else if(nroCell.getText().toString().trim().equalsIgnoreCase("")) {
+                    Toast.makeText(getApplicationContext(), "FAVOR DE REGISTRAR CELULAR", Toast.LENGTH_SHORT).show();
                 }else if(p.matcher(nroCell.getText().toString()).matches()==false){
                     Toast.makeText(getApplicationContext(), "FAVOR DE INGRESAR 9 DIGITOS EN CELULAR", Toast.LENGTH_SHORT).show();
                 }else if(p1.matcher(nroDocum.getText().toString()).matches()==false){
