@@ -65,10 +65,25 @@ public class activity_regusuario extends AppCompatActivity {
                 }else if(p1.matcher(numdoc.getText().toString()).matches()==false){
                     Toast.makeText(getApplicationContext(), "FAVOR DE INGRESAR 8 DIGITOS EN DNI", Toast.LENGTH_SHORT).show();
                 }else {
-                    //Muestra Menu Principal
-                    mostrarMenuPrincipal();
+
                     //Cargar datos del propietario del celular
                     cargarPreferencias();
+
+                    //Pasar el valor a true
+
+                    SharedPreferences preferencias=getSharedPreferences("variables",Context.MODE_PRIVATE);
+                    Boolean bandActivity=preferencias.getBoolean("bandera",false);
+
+                    if(bandActivity==false){
+                        SharedPreferences.Editor editor=preferencias.edit();
+                        editor.putBoolean("bandera",true);
+                        editor.commit();
+
+                        mostrarMenuPrincipal();
+
+
+                    }
+
                 }
             }
         });
@@ -93,6 +108,8 @@ public class activity_regusuario extends AppCompatActivity {
         editor.putString("Nacionalidad",spinac.getSelectedItem().toString());
         editor.putString("TipoDocumento",spitipo.getSelectedItem().toString());
         editor.putString("NumDocumento",numdoc.getText().toString());
+        editor.putBoolean("bandera",false);
+
         editor.commit();
     }
 
