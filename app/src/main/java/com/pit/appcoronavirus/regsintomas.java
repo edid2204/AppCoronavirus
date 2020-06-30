@@ -9,7 +9,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.regex.Pattern;
 
 public class regsintomas extends AppCompatActivity {
 
@@ -42,30 +46,40 @@ public class regsintomas extends AppCompatActivity {
         spiano= (Spinner) findViewById(R.id.spiAno);
         btncontinuar=(Button) findViewById(R.id.btnContinuar);
 
-        //Crear Adapter Dia
-        String[] Dia=new String[]{"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
-        ArrayAdapter<String> adpdia=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,Dia);
-        spidia.setAdapter(adpdia);
+            //Crear Adapter Dia
+            String[] Dia = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
+            ArrayAdapter<String> adpdia = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Dia);
+            spidia.setAdapter(adpdia);
 
-        //Crear Adapter Mes
-        String[] Mes=new String[]{"01","02","03","04","05","06","07","08","09","10","11","12"};
-        ArrayAdapter<String> adpmes=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,Mes);
-        spimes.setAdapter(adpmes);
+            //Crear Adapter Mes
+            String[] Mes = new String[]{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
+            ArrayAdapter<String> adpmes = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Mes);
+            spimes.setAdapter(adpmes);
 
-        //Crear Adapter Año
-        String[] Ano=new String[]{"1970","1980","1999","2000","2020"};
-        ArrayAdapter<String> adpano=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,Ano);
-        spiano.setAdapter(adpano);
+            //Crear Adapter Año
+            String[] Ano = new String[]{"1970", "1980", "1999", "2000", "2020"};
+            ArrayAdapter<String> adpano = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Ano);
+            spiano.setAdapter(adpano);
 
-        dni=getIntent().getStringExtra("dni");
+            dni = getIntent().getStringExtra("dni");
 
-        btncontinuar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mostrarRiesgos();
 
-            }
-        });
+            btncontinuar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Pattern p4=Pattern.compile("[A-Za-z0-9 ,.°]{10,300}");
+
+                    if(edtotro.getText().toString().trim().equalsIgnoreCase("")) {
+                        Toast.makeText(getApplicationContext(), "FAVOR DE INDICAR OTROS SINTOMAS", Toast.LENGTH_SHORT).show();
+                    }else if(p4.matcher(edtotro.getText().toString()).matches()==false) {
+                        Toast.makeText(getApplicationContext(), "FAVOR INGRESAR SOLO LETRAS Y NUMEROS EN OTROS DE 10 A 300 CARACTERES", Toast.LENGTH_SHORT).show();
+                    }else {
+
+                        mostrarRiesgos();
+                    }
+                }
+            });
 
     }
 

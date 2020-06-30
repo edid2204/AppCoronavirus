@@ -106,23 +106,26 @@ public class Regciudadano extends AppCompatActivity {
 
                 Pattern p=Pattern.compile("[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
                 Pattern p1=Pattern.compile("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
-                Pattern p2=Pattern.compile("/A-Za-z/");
-                Pattern p3=Pattern.compile("/^[A-Za-z0-9 ]$");
+                Pattern p2=Pattern.compile("[A-Za-z ]{3,50}");
+                Pattern p3=Pattern.compile("[A-Za-z0-9 ,#.]{10,80}");
 
 
                 if(nroDocum.getText().toString().trim().equalsIgnoreCase("")){
                     Toast.makeText(getApplicationContext(),"FAVOR DE REGISTRAR NUMERO DE DOCUMENTO",Toast.LENGTH_SHORT).show();
-                }
-                else if(nroCell.getText().toString().trim().equalsIgnoreCase("")) {
+                }else if(p1.matcher(nroDocum.getText().toString()).matches()==false){
+                    Toast.makeText(getApplicationContext(), "FAVOR DE INGRESAR 8 DIGITOS EN DOCUMENTO", Toast.LENGTH_SHORT).show();
+                }else if(nroCell.getText().toString().trim().equalsIgnoreCase("")) {
                     Toast.makeText(getApplicationContext(), "FAVOR DE REGISTRAR CELULAR", Toast.LENGTH_SHORT).show();
                 }else if(p.matcher(nroCell.getText().toString()).matches()==false){
                     Toast.makeText(getApplicationContext(), "FAVOR DE INGRESAR 9 DIGITOS EN CELULAR", Toast.LENGTH_SHORT).show();
-                }else if(p1.matcher(nroDocum.getText().toString()).matches()==false){
-                    Toast.makeText(getApplicationContext(), "FAVOR DE INGRESAR 8 DIGITOS EN DNI", Toast.LENGTH_SHORT).show();
+                }else if(nomCiudadano.getText().toString().trim().equalsIgnoreCase("")) {
+                    Toast.makeText(getApplicationContext(), "FAVOR DE REGISTRAR NOMBRE", Toast.LENGTH_SHORT).show();
                 }else if(p2.matcher(nomCiudadano.getText().toString()).matches()==false) {
-                    Toast.makeText(getApplicationContext(), "FAVOR INGRESAR LETRAS EN NOMBRE", Toast.LENGTH_SHORT).show();
-                }else if(p3.matcher(direccion.getText().toString()).matches()==false) {
-                    Toast.makeText(getApplicationContext(), "FAVOR INGRESAR LETRAS Y NUMEROS EN DIRECCION", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "FAVOR INGRESAR SOLO TEXTO EN NOMBRE DE 3 A 50 CARACTERES", Toast.LENGTH_SHORT).show();
+                } else if(direccion.getText().toString().trim().equalsIgnoreCase("")) {
+                    Toast.makeText(getApplicationContext(), "FAVOR DE REGISTRAR DIRECCION", Toast.LENGTH_SHORT).show();
+                } else if(p3.matcher(direccion.getText().toString()).matches()==false) {
+                    Toast.makeText(getApplicationContext(), "FAVOR INGRESAR SOLO LETRAS Y NUMEROS EN DIRECCION DE 10 A 80 CARACTERES", Toast.LENGTH_SHORT).show();
                 }else
                     {
 

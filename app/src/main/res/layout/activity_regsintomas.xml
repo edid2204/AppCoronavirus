@@ -115,7 +115,7 @@
         android:layout_marginBottom="20dp"
         android:textSize="20dp"
         android:inputType="text"
-        android:maxLength="30"/>
+        android:maxLength="300"/>
 
     <TextView
         android:id="@+id/textView2"
