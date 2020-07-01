@@ -6,6 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".Cifras">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="242dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="Filtrar por Departamentos"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026" />
+
+    <Spinner
+        android:id="@+id/spiDep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="match_parent"
@@ -16,9 +43,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.202" />
 
     <TextView
         android:id="@+id/txtConfirmado"
@@ -34,10 +62,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
         android:id="@+id/textView2"
@@ -62,7 +89,7 @@
         android:layout_height="79dp"
         android:layout_marginTop="88dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="240dp"
         android:background="@color/cardview_shadow_start_color"
         android:gravity="center"
         android:textSize="50dp"
@@ -98,7 +125,7 @@
         android:layout_height="78dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="89dp"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="240dp"
         android:background="@color/cardview_shadow_start_color"
         android:gravity="center"
         android:textSize="50dp"
@@ -192,5 +219,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,10 +26,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Cifras extends AppCompatActivity {
 
     TextView canconf,canrec,canuci,canteva,cantfall;
     Button regresar;
+    Spinner depa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +46,33 @@ public class Cifras extends AppCompatActivity {
         canteva=(TextView) findViewById(R.id.txtEvaluacion);
         cantfall=(TextView) findViewById(R.id.txtFallecido);
         regresar=(Button) findViewById(R.id.btnRegresar);
+        depa=(Spinner) findViewById(R.id.spiDep);
 
-        ejecutarServicio();
+        //Crear Adapter Departamento
+        final String[] departamento=new String[]{"Perú","Amazonas","Ancash","Apurimac","Arequipa","Ayacucho","Cajamarca","Callao","Huancavelica","Huanuco","Ica","Junin","La Libertad","Lambayeque","Lima","Loreto","Madre De Dios","Moquegua",
+                "Pasco","Piura","Puno","San Martin","Tacna","Tumbes","Ucayali"};
+        ArrayAdapter<String> adpdep=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,departamento);
+        depa.setAdapter(adpdep);
+
+
+        depa.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                String d=parent.getItemAtPosition(position).toString();
+
+                    ejecutarServicioxdep(d);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
 
         regresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +82,7 @@ public class Cifras extends AppCompatActivity {
         });
     }
 
-    private void ejecutarServicio(){
+    private void ejecutarServicioxdep(final String depa){
 
         String url="http://grupo2-pit.j.layershift.co.uk/Services/select_estado_get.php";
 
@@ -63,33 +96,36 @@ public class Cifras extends AppCompatActivity {
 
                     int contc=0, contr=0,contu=0,conte=0,contf=0;
 
-                    for(int i=0; i<json.length();i++){
+                    Toast.makeText(getApplicationContext(),depa,Toast.LENGTH_SHORT).show();
 
-                        contc++;
+                    for(int i=0; i<json.length();i++) {
 
-                        JSONObject e=json.getJSONObject(i);
+                        JSONObject e = json.getJSONObject(i);
 
-                        String estado=e.getString("condicion");
+                            contc++;
 
-                        if(estado.equals("Recuperado")){
-                            contr++;
-                        }
-                        if(estado.equals("UCI")){
-                            contu++;
-                        }
-                        if(estado.equals("Evaluacion")){
-                            conte++;
-                        }
-                        if(estado.equals("Fallecido")){
-                            contf++;
-                        }
+                            String estado = e.getString("condicion");
 
+                            if (estado.equals("Recuperado")) {
+                                contr++;
+                            }
+                            if (estado.equals("UCI")) {
+                                contu++;
+                            }
+                            if (estado.equals("Evaluacion")) {
+                                conte++;
+                            }
+                            if (estado.equals("Fallecido")) {
+                                contf++;
+                            }
+
+
+                            canconf.setText(""+contc);
+                            canrec.setText("" + contr);
+                            canuci.setText("" + contu);
+                            canteva.setText("" + conte);
+                            cantfall.setText("" + contf);
                     }
-                    canconf.setText(""+contc);
-                    canrec.setText(""+contr);
-                    canuci.setText(""+contu);
-                    canteva.setText(""+conte);
-                    cantfall.setText(""+contf);
 
                 }catch(JSONException e){
                     e.printStackTrace();
@@ -100,7 +136,18 @@ public class Cifras extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
             }
-        });
+        }){
+
+            //Envio de parametros
+            protected Map<String,String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String,String>();
+                parametros.put("Departamento",depa);
+
+
+                return parametros;
+            }
+
+        };
 
         RequestQueue rq= Volley.newRequestQueue(this);
         rq.add(jr);
