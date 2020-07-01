@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,10 +21,12 @@ public class regsintomas extends AppCompatActivity {
     //Declariacion de objetos
     CheckBox chkgusto,chktos,chkgarganta,chkrespirar,chkcongestion,chkfiebre,chkotro;
     EditText edtotro;
+
     RadioButton rbtfiebre1,rbtfiebre2;
     Spinner spidia,spimes,spiano;
     Button btncontinuar;
     String dni, cad1="",cad2="",cad3="",cad4="",cad5="",cad6="",cad7="",cad8="",cad9="";
+    RadioGroup rg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class regsintomas extends AppCompatActivity {
         spimes= (Spinner) findViewById(R.id.spiMes);
         spiano= (Spinner) findViewById(R.id.spiAno);
         btncontinuar=(Button) findViewById(R.id.btnContinuar);
+        rg=(RadioGroup) findViewById(R.id.rgfiebre);
 
             //Crear Adapter Dia
             String[] Dia = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
@@ -52,12 +56,12 @@ public class regsintomas extends AppCompatActivity {
             spidia.setAdapter(adpdia);
 
             //Crear Adapter Mes
-            String[] Mes = new String[]{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
+            String[] Mes = new String[]{"01", "02", "03", "04", "05", "06"};
             ArrayAdapter<String> adpmes = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Mes);
             spimes.setAdapter(adpmes);
 
             //Crear Adapter Año
-            String[] Ano = new String[]{"1970", "1980", "1999", "2000", "2020"};
+            String[] Ano = new String[]{"2020"};
             ArrayAdapter<String> adpano = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Ano);
             spiano.setAdapter(adpano);
 
@@ -68,15 +72,24 @@ public class regsintomas extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    Pattern p4=Pattern.compile("[A-Za-z0-9 ,.°]{10,300}");
 
-                    if(edtotro.getText().toString().trim().equalsIgnoreCase("")) {
-                        Toast.makeText(getApplicationContext(), "FAVOR DE INDICAR OTROS SINTOMAS", Toast.LENGTH_SHORT).show();
-                    }else if(p4.matcher(edtotro.getText().toString()).matches()==false) {
-                        Toast.makeText(getApplicationContext(), "FAVOR INGRESAR SOLO LETRAS Y NUMEROS EN OTROS DE 10 A 300 CARACTERES", Toast.LENGTH_SHORT).show();
+                    if(chkgusto.isChecked()==false && chktos.isChecked()==false && chkgarganta.isChecked()==false && chkrespirar.isChecked()==false && chkcongestion.isChecked()==false && chkfiebre.isChecked()==false
+                            && rbtfiebre1.isChecked()==false && rbtfiebre2.isChecked()==false && chkotro.isChecked()==false){
+
+                        Toast.makeText(getApplicationContext(), "FAVOR DE REGISTRAR ALGÚN DE LOS SINTOMAS", Toast.LENGTH_SHORT).show();
                     }else {
 
-                        mostrarRiesgos();
+                        Pattern p4 = Pattern.compile("[A-Za-z0-9 ,.°]{10,300}");
+
+                        if (edtotro.getText().toString().trim().equalsIgnoreCase("")) {
+                            Toast.makeText(getApplicationContext(), "FAVOR DE INDICAR ALGUN OTRO SINTOMA EN LA OPCIÓN OTROS", Toast.LENGTH_SHORT).show();
+                        } else if (p4.matcher(edtotro.getText().toString()).matches() == false) {
+                            Toast.makeText(getApplicationContext(), "FAVOR INGRESAR SOLO LETRAS Y NUMEROS EN OTROS DE 10 A 300 CARACTERES", Toast.LENGTH_SHORT).show();
+                        } else {
+
+                            mostrarRiesgos();
+
+                        }
                     }
                 }
             });
@@ -126,26 +139,38 @@ public class regsintomas extends AppCompatActivity {
             intent.putExtra("congestion",cad5);
         }
         if(chkfiebre.isChecked()==true){
+
             cad6+="Sí";
             intent.putExtra("fiebre",cad6);
+
+            //Habilitar RadioGroup
+            setRadioGroupEnabled(rg,true);
+
+                if(rbtfiebre1.isChecked()==true){
+                    cad7+="Sí";
+                    intent.putExtra("fiebre1",cad7);
+                }else{
+                    cad7+="No";
+                    intent.putExtra("fiebre1",cad7);
+                }
+                if(rbtfiebre2.isChecked()==true){
+                    cad8+="Sí";
+                    intent.putExtra("fiebre2",cad8);
+                }else{
+                    cad8+="No";
+                    intent.putExtra("fiebre2",cad8);
+                }
+
         }else{
             cad6+="No";
             intent.putExtra("fiebre",cad6);
+
+            //Desabilita RadioGroup
+
+            setRadioGroupEnabled(rg,false);
+
         }
-        if(rbtfiebre1.isChecked()==true){
-            cad7+="Sí";
-            intent.putExtra("fiebre1",cad7);
-        }else{
-            cad7+="No";
-            intent.putExtra("fiebre1",cad7);
-        }
-        if(rbtfiebre2.isChecked()==true){
-            cad8+="Sí";
-            intent.putExtra("fiebre2",cad8);
-        }else{
-            cad8+="No";
-            intent.putExtra("fiebre2",cad8);
-        }
+
         if(chkotro.isChecked()==true){
             cad9+="Sí";
             intent.putExtra("otro",cad9);
@@ -159,6 +184,14 @@ public class regsintomas extends AppCompatActivity {
         intent.putExtra("mes",spimes.getSelectedItem().toString());
         intent.putExtra("ano",spiano.getSelectedItem().toString());
         startActivity(intent);
+
+    }
+
+    private void setRadioGroupEnabled(RadioGroup radioGroup,boolean b){
+
+        for(int i=0;i<rg.getChildCount();i++) {
+            ((RadioButton) rg.getChildAt(i)).setEnabled(b);
+        }
 
     }
 

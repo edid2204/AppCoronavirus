@@ -129,9 +129,9 @@ public class Regciudadano extends AppCompatActivity {
                 }else
                     {
 
-                    //ejecutarServicio("http://pit-covid19.j.layershift.co.uk/Services/insertar_ciudadano.php");
+                    ejecutarServicio("http://grupo2-pit.j.layershift.co.uk/Services/insertar_ciudadano.php");
 
-                    ejecutarServicio("http://env-6410274.j.layershift.co.uk/servicio_web/rest/ciudadano/");
+                    //ejecutarServicio("http://env-6410274.j.layershift.co.uk/servicio_web/rest/ciudadano/");
                     //Llama activiy Sintomas
                     MostrarSintomas();
                 }
@@ -142,7 +142,7 @@ public class Regciudadano extends AppCompatActivity {
     }
 
 
-
+    /*
     //Metodo que envia las peticiones al server url: ruta del webservice para Java
     private void ejecutarServicio(String URL){
 
@@ -175,11 +175,8 @@ public class Regciudadano extends AppCompatActivity {
         });
 
         Volley.newRequestQueue(this).add(jr);
-    }
+    }*/
 
-
-
-/*
     //Metodo que envia las peticiones al server url: ruta del webservice para PHP
     private void ejecutarServicio(String URL){
         //Declara peticion y tipo
@@ -210,6 +207,7 @@ public class Regciudadano extends AppCompatActivity {
                 parametros.put("Departamento",spiDep.getSelectedItem().toString());
                 parametros.put("Provincia",spiProv.getSelectedItem().toString());
                 parametros.put("Distrito",spiDis.getSelectedItem().toString());
+                //parametros.put("Estado","");
 
                 return parametros;
             }
@@ -219,7 +217,7 @@ public class Regciudadano extends AppCompatActivity {
         rq.add(sr);
 
     }
-*/
+
     //Muestra inteface de Sintomas enviando parametro dni
     public void MostrarSintomas(){
 

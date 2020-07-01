@@ -79,6 +79,10 @@
         android:textStyle="bold"
         android:text="Fiebre" />
 
+            <RadioGroup
+                android:id="@+id/rgfiebre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
     <RadioButton
         android:id="@+id/rbtfiebre1"
         android:layout_marginLeft="30dp"
@@ -97,7 +101,9 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"
-        android:text="Fiebre mayoy igual a 38°C."/>
+        android:text="Fiebre mayoy igual a 38°C." />
+
+            </RadioGroup>
 
     <CheckBox
         android:id="@+id/chkotro"

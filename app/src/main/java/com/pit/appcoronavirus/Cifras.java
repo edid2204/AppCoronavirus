@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 public class Cifras extends AppCompatActivity {
 
-    TextView canconf;
+    TextView canconf,canrec,canuci,canteva,cantfall;
     Button regresar;
 
     @Override
@@ -33,6 +33,10 @@ public class Cifras extends AppCompatActivity {
         setContentView(R.layout.activity_cifras);
 
         canconf=(TextView) findViewById(R.id.txtConfirmado);
+        canrec=(TextView) findViewById(R.id.txtRecuperados);
+        canuci=(TextView) findViewById(R.id.txtUci);
+        canteva=(TextView) findViewById(R.id.txtEvaluacion);
+        cantfall=(TextView) findViewById(R.id.txtFallecido);
         regresar=(Button) findViewById(R.id.btnRegresar);
 
         ejecutarServicio();
@@ -47,7 +51,7 @@ public class Cifras extends AppCompatActivity {
 
     private void ejecutarServicio(){
 
-        String url="http://env-6410274.j.layershift.co.uk/servicio_web/rest/estado";
+        String url="http://grupo2-pit.j.layershift.co.uk/Services/select_estado_get.php";
 
 
         JsonObjectRequest jr=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -55,18 +59,37 @@ public class Cifras extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 try {
-                    JSONArray json=response.getJSONArray("estado");
+                    JSONArray json=response.getJSONArray("postData");
 
-                    int cont=0;
+                    int contc=0, contr=0,contu=0,conte=0,contf=0;
 
                     for(int i=0; i<json.length();i++){
+
+                        contc++;
+
                         JSONObject e=json.getJSONObject(i);
-                        String est=e.getString("estado");
-                        if(est.equals("Positivo")){
-                            cont++;
+
+                        String estado=e.getString("condicion");
+
+                        if(estado.equals("Recuperado")){
+                            contr++;
                         }
+                        if(estado.equals("UCI")){
+                            contu++;
+                        }
+                        if(estado.equals("Evaluacion")){
+                            conte++;
+                        }
+                        if(estado.equals("Fallecido")){
+                            contf++;
+                        }
+
                     }
-                    canconf.setText(cont);
+                    canconf.setText(""+contc);
+                    canrec.setText(""+contr);
+                    canuci.setText(""+contu);
+                    canteva.setText(""+conte);
+                    cantfall.setText(""+contf);
 
                 }catch(JSONException e){
                     e.printStackTrace();

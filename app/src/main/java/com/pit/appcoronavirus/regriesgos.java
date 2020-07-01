@@ -70,9 +70,9 @@ public class regriesgos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //ejecutarServicio("http://pit-covid19.j.layershift.co.uk/Services/insertar_sintoma.php");
+                ejecutarServicio("http://grupo2-pit.j.layershift.co.uk/Services/insertar_sintoma.php");
 
-                ejecutarServicio("http://env-6410274.j.layershift.co.uk/servicio_web/rest/sintomas/");
+                //ejecutarServicio("http://env-6410274.j.layershift.co.uk/servicio_web/rest/sintomas/");
 
                 mostrarMenuPrincipal();
             }
@@ -80,7 +80,7 @@ public class regriesgos extends AppCompatActivity {
 
     }
 
-
+    /*
     //Metodo que envia las peticiones al server url: ruta del webservice Java
     private void ejecutarServicio(String URL){
 
@@ -222,9 +222,9 @@ public class regriesgos extends AppCompatActivity {
         //Proceso y ejecucion de peticion
         Volley.newRequestQueue(this).add(jr);
 
-    }
+    }*/
 
-    /*
+
     //Metodo que envia las peticiones al server url: ruta del webservice PHP
     private void ejecutarServicio(String URL){
         //Declara peticion y tipo
@@ -257,7 +257,7 @@ public class regriesgos extends AppCompatActivity {
                 parametros.put("dia",dia);
                 parametros.put("mes",mes);
                 parametros.put("ano",ano);
-                parametros.put("estado","");
+
 
                 String cad1="",cad2="",cad3="",cad4="",cad5="",cad6="",cad7="",cad8="",cad9="",cad10="",cad11="",cad12="",cad13="";
 
@@ -369,7 +369,7 @@ public class regriesgos extends AppCompatActivity {
         RequestQueue rq= Volley.newRequestQueue(this);
         rq.add(sr);
 
-    }*/
+    }
 
     public void mostrarMenuPrincipal(){
         Intent intent=new Intent(this,MenuPrincipal.class);
