@@ -20,12 +20,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,7 +51,7 @@ public class Cifras extends AppCompatActivity {
         depa=(Spinner) findViewById(R.id.spiDep);
 
         //Crear Adapter Departamento
-        final String[] departamento=new String[]{"Perú","Amazonas","Ancash","Apurimac","Arequipa","Ayacucho","Cajamarca","Callao","Huancavelica","Huanuco","Ica","Junin","La Libertad","Lambayeque","Lima","Loreto","Madre De Dios","Moquegua",
+        final String[] departamento=new String[]{"Peru","Amazonas","Ancash","Apurimac","Arequipa","Ayacucho","Cajamarca","Callao","Huancavelica","Huanuco","Ica","Junin","La Libertad","Lambayeque","Lima","Loreto","Madre De Dios","Moquegua",
                 "Pasco","Piura","Puno","San Martin","Tacna","Tumbes","Ucayali"};
         ArrayAdapter<String> adpdep=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,departamento);
         depa.setAdapter(adpdep);
@@ -60,6 +62,8 @@ public class Cifras extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 String d=parent.getItemAtPosition(position).toString();
+
+
 
                     ejecutarServicioxdep(d);
 
@@ -84,73 +88,130 @@ public class Cifras extends AppCompatActivity {
 
     private void ejecutarServicioxdep(final String depa){
 
-        String url="http://grupo2-pit.j.layershift.co.uk/Services/select_estado_get.php";
+            //String Departamento= URLEncoder.encode(depa,"utf-8");
+
+            if(depa=="Peru"){
+                String url="http://grupo2-pit.j.layershift.co.uk/Services/select_estadototal_get.php";
+
+                JsonObjectRequest jr=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try {
+                            JSONArray json=response.getJSONArray("postData");
+
+                            int contc=0, contr=0,contu=0,conte=0,contf=0;
 
 
-        JsonObjectRequest jr=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
 
-                try {
-                    JSONArray json=response.getJSONArray("postData");
+                            for(int i=0; i<json.length();i++) {
 
-                    int contc=0, contr=0,contu=0,conte=0,contf=0;
+                                JSONObject e = json.getJSONObject(i);
 
-                    Toast.makeText(getApplicationContext(),depa,Toast.LENGTH_SHORT).show();
+                                contc++;
 
-                    for(int i=0; i<json.length();i++) {
+                                String estado = e.getString("condicion");
 
-                        JSONObject e = json.getJSONObject(i);
+                                if (estado.equals("Recuperado")) {
+                                    contr++;
+                                }
+                                if (estado.equals("UCI")) {
+                                    contu++;
+                                }
+                                if (estado.equals("Evaluacion")) {
+                                    conte++;
+                                }
+                                if (estado.equals("Fallecido")) {
+                                    contf++;
+                                }
 
-                            contc++;
 
-                            String estado = e.getString("condicion");
-
-                            if (estado.equals("Recuperado")) {
-                                contr++;
+                                canconf.setText(""+contc);
+                                canrec.setText("" + contr);
+                                canuci.setText("" + contu);
+                                canteva.setText("" + conte);
+                                cantfall.setText("" + contf);
                             }
-                            if (estado.equals("UCI")) {
-                                contu++;
-                            }
-                            if (estado.equals("Evaluacion")) {
-                                conte++;
-                            }
-                            if (estado.equals("Fallecido")) {
-                                contf++;
-                            }
 
-
-                            canconf.setText(""+contc);
-                            canrec.setText("" + contr);
-                            canuci.setText("" + contu);
-                            canteva.setText("" + conte);
-                            cantfall.setText("" + contf);
+                        }catch(JSONException e){
+                            e.printStackTrace();
+                        }
                     }
+                },new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-                }catch(JSONException e){
-                    e.printStackTrace();
-                }
+                RequestQueue rq= Volley.newRequestQueue(this);
+                rq.add(jr);
+
+            }else{
+
+
+                Toast.makeText(getApplicationContext(),depa,Toast.LENGTH_SHORT).show();
+
+                String urld="http://grupo2-pit.j.layershift.co.uk/Services/select_estado_get.php";
+
+                String url=urld+"?Departamento="+depa;
+
+
+                JsonObjectRequest jr=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try {
+                            JSONArray json=response.getJSONArray("postData");
+
+                            int contc=0, contr=0,contu=0,conte=0,contf=0;
+
+
+
+                            for(int i=0; i<json.length();i++) {
+
+                                JSONObject e = json.getJSONObject(i);
+
+                                contc++;
+
+                                String estado = e.getString("condicion");
+
+                                if (estado.equals("Recuperado")) {
+                                    contr++;
+                                }
+                                if (estado.equals("UCI")) {
+                                    contu++;
+                                }
+                                if (estado.equals("Evaluacion")) {
+                                    conte++;
+                                }
+                                if (estado.equals("Fallecido")) {
+                                    contf++;
+                                }
+
+
+                                canconf.setText(""+contc);
+                                canrec.setText("" + contr);
+                                canuci.setText("" + contu);
+                                canteva.setText("" + conte);
+                                cantfall.setText("" + contf);
+                            }
+
+                        }catch(JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                RequestQueue rq= Volley.newRequestQueue(this);
+                rq.add(jr);
+
             }
-        },new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT).show();
-            }
-        }){
-
-            //Envio de parametros
-            protected Map<String,String> getParams() throws AuthFailureError {
-                Map<String,String> parametros=new HashMap<String,String>();
-                parametros.put("Departamento",depa);
-
-
-                return parametros;
-            }
-
-        };
-
-        RequestQueue rq= Volley.newRequestQueue(this);
-        rq.add(jr);
 
     }
 

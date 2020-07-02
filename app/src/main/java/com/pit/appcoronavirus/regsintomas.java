@@ -24,7 +24,7 @@ public class regsintomas extends AppCompatActivity {
 
     RadioButton rbtfiebre1,rbtfiebre2;
     Spinner spidia,spimes,spiano;
-    Button btncontinuar;
+    Button btncontinuar,btnatras;
     String dni, cad1="",cad2="",cad3="",cad4="",cad5="",cad6="",cad7="",cad8="",cad9="";
     RadioGroup rg;
 
@@ -48,6 +48,7 @@ public class regsintomas extends AppCompatActivity {
         spimes= (Spinner) findViewById(R.id.spiMes);
         spiano= (Spinner) findViewById(R.id.spiAno);
         btncontinuar=(Button) findViewById(R.id.btnContinuar);
+        btnatras=(Button) findViewById(R.id.btnRetroceder);
         rg=(RadioGroup) findViewById(R.id.rgfiebre);
 
             //Crear Adapter Dia
@@ -91,6 +92,14 @@ public class regsintomas extends AppCompatActivity {
 
                         }
                     }
+                }
+            });
+
+
+            btnatras.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mostrarMenu();
                 }
             });
 
@@ -142,35 +151,23 @@ public class regsintomas extends AppCompatActivity {
 
             cad6+="Sí";
             intent.putExtra("fiebre",cad6);
-
-            //Habilitar RadioGroup
-            setRadioGroupEnabled(rg,true);
-
-                if(rbtfiebre1.isChecked()==true){
-                    cad7+="Sí";
-                    intent.putExtra("fiebre1",cad7);
-                }else{
-                    cad7+="No";
-                    intent.putExtra("fiebre1",cad7);
-                }
-                if(rbtfiebre2.isChecked()==true){
-                    cad8+="Sí";
-                    intent.putExtra("fiebre2",cad8);
-                }else{
-                    cad8+="No";
-                    intent.putExtra("fiebre2",cad8);
-                }
-
         }else{
             cad6+="No";
             intent.putExtra("fiebre",cad6);
-
-            //Desabilita RadioGroup
-
-            setRadioGroupEnabled(rg,false);
-
+        }if(rbtfiebre1.isChecked()==true){
+            cad7+="Sí";
+            intent.putExtra("fiebre1",cad7);
+        }else{
+            cad7+="No";
+            intent.putExtra("fiebre1",cad7);
         }
-
+        if(rbtfiebre2.isChecked()==true){
+            cad8+="Sí";
+            intent.putExtra("fiebre2",cad8);
+        }else{
+            cad8+="No";
+            intent.putExtra("fiebre2",cad8);
+        }
         if(chkotro.isChecked()==true){
             cad9+="Sí";
             intent.putExtra("otro",cad9);
@@ -187,13 +184,9 @@ public class regsintomas extends AppCompatActivity {
 
     }
 
-    private void setRadioGroupEnabled(RadioGroup radioGroup,boolean b){
-
-        for(int i=0;i<rg.getChildCount();i++) {
-            ((RadioButton) rg.getChildAt(i)).setEnabled(b);
-        }
-
+    public void mostrarMenu(){
+        Intent intent=new Intent(this,MenuPrincipal.class);
+        startActivity(intent);
     }
-
 
 }

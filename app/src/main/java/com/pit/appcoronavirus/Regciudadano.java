@@ -35,7 +35,7 @@ public class Regciudadano extends AppCompatActivity {
     //Declaración de objetos
     EditText nomCiudadano,direccion,nroCell,nroDocum;
     Spinner spiNac,spiDep,spiProv,spiDis,spiTipoDoc,spiDia,spiMes,spiAno;
-    Button btnRegCiudadano;
+    Button btnRegCiudadano,btnRetro;
 
 
     @Override
@@ -57,6 +57,7 @@ public class Regciudadano extends AppCompatActivity {
         spiProv=(Spinner) findViewById(R.id.spiProvincia);
         spiDis=(Spinner) findViewById(R.id.spiDistrito);
         btnRegCiudadano=(Button) findViewById(R.id.btnRegCiudadano);
+        btnRetro=(Button) findViewById(R.id.btnAtras);
 
         //Crear Adapter Nacionalidad
         String[] nacionalidad=new String[]{"Peruano","Venezolano","Chileno","Ecuatoriano","Colombiano"};
@@ -135,6 +136,13 @@ public class Regciudadano extends AppCompatActivity {
                     //Llama activiy Sintomas
                     MostrarSintomas();
                 }
+            }
+        });
+
+        btnRetro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarMenu();
             }
         });
 
@@ -225,5 +233,10 @@ public class Regciudadano extends AppCompatActivity {
         intent.putExtra("dni",nroDocum.getText().toString());
         startActivity(intent);
 
+    }
+
+    public void mostrarMenu(){
+        Intent intent=new Intent(this,MenuPrincipal.class);
+        startActivity(intent);
     }
 }

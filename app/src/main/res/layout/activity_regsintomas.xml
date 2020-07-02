@@ -191,7 +191,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F44336"
-        android:text="Atras"
+        android:text="Menu Principal"
         android:textColor="#FCFBFB"
         android:textSize="15sp"
         android:textStyle="bold" />
